@@ -1,4 +1,5 @@
 import { serve } from '@hono/node-server';
+import { logger } from 'common';
 import { Hono } from 'hono';
 
 const app = new Hono();
@@ -13,6 +14,6 @@ serve(
     port: 3000,
   },
   (info) => {
-    console.log(`Server is running on http://localhost:${info.port}`);
+    logger.info(`Server is running on http://localhost:${info.port}`);
   },
 );
