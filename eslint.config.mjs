@@ -30,7 +30,13 @@ const gitignorePath = path.resolve(__dirname, '.gitignore');
 export default [
   includeIgnoreFile(gitignorePath),
   {
-    ignores: ['!**/.server', '!**/.client', '**/components/ui/**'],
+    ignores: [
+      '!**/.server',
+      '!**/.client',
+      '**/components/ui/**',
+      '**/*/*.d.ts',
+      '**/*/load-context.ts',
+    ],
   },
   ...compat.extends('eslint:recommended', 'prettier'),
   {
