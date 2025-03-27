@@ -12,7 +12,7 @@ app.get('/', (c) => {
 serve(
   {
     fetch: app.fetch,
-    port: 3000,
+    port: 3030,
   },
   (info) => {
     logger.info(`Server is running on http://localhost:${info.port}`);
