@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "turbo build",
-    "dev": "turbo dev",
+    "dev:node": "turbo dev --filter=@apps/remix-node --filter=@apps/hono-node",
+    "dev:cf": "turbo dev --filter=@apps/remix-cf --filter=@apps/hono-cf",
     "lint": "turbo lint",
     "deploy": "turbo deploy",
     "format": "prettier --write ."

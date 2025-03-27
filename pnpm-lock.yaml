@@ -68,6 +68,9 @@ importers:
 
   apps/hono-cf:
     dependencies:
+      '@packages/hono-core':
+        specifier: workspace:*
+        version: link:../../packages/hono-core
       hono:
         specifier: ^4.7.5
         version: 4.7.5
@@ -84,9 +87,12 @@ importers:
       '@hono/node-server':
         specifier: ^1.14.0
         version: 1.14.0(hono@4.7.5)
-      common:
+      '@packages/common':
         specifier: workspace:*
         version: link:../../packages/common
+      '@packages/hono-core':
+        specifier: workspace:*
+        version: link:../../packages/hono-core
       hono:
         specifier: ^4.7.5
         version: 4.7.5
@@ -100,6 +106,9 @@ importers:
 
   apps/remix-cf:
     dependencies:
+      '@packages/hono-core':
+        specifier: workspace:*
+        version: link:../../packages/hono-core
       '@remix-run/cloudflare':
         specifier: ^2.15.3
         version: 2.16.2(@cloudflare/workers-types@4.20250321.0)(typescript@5.8.2)
@@ -152,6 +161,9 @@ importers:
 
   apps/remix-node:
     dependencies:
+      '@packages/hono-core':
+        specifier: workspace:*
+        version: link:../../packages/hono-core
       '@remix-run/node':
         specifier: ^2.16.2
         version: 2.16.2(typescript@5.8.2)
@@ -204,6 +216,21 @@ importers:
       pino-pretty:
         specifier: ^13.0.0
         version: 13.0.0
+
+  packages/hono-core:
+    dependencies:
+      '@hono/zod-validator':
+        specifier: ^0.4.3
+        version: 0.4.3(hono@4.7.5)(zod@3.24.2)
+      '@packages/common':
+        specifier: workspace:*
+        version: link:../common
+      hono:
+        specifier: ^4.7.5
+        version: 4.7.5
+      zod:
+        specifier: ^3.24.2
+        version: 3.24.2
 
 packages:
 
@@ -1221,6 +1248,12 @@ packages:
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: ^4
+
+  '@hono/zod-validator@0.4.3':
+    resolution: {integrity: sha512-xIgMYXDyJ4Hj6ekm9T9Y27s080Nl9NXHcJkOvkXPhubOLj8hZkOL8pDnnXfvCf5xEE8Q4oMFenQUZZREUY2gqQ==}
+    peerDependencies:
+      hono: '>=3.9.0'
+      zod: ^3.19.1
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -4797,6 +4830,9 @@ packages:
   zod@3.22.3:
     resolution: {integrity: sha512-EjIevzuJRiRPbVH4mGc8nApb/lVLKVpmUhAaR5R5doKGfAnGJ6Gr3CViAVjP+4FWSxCsybeWQdcgCtbX+7oZug==}
 
+  zod@3.24.2:
+    resolution: {integrity: sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ==}
+
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
@@ -5054,7 +5090,7 @@ snapshots:
   '@cloudflare/workers-shared@0.7.0':
     dependencies:
       mime: 3.0.0
-      zod: 3.22.3
+      zod: 3.24.2
     optional: true
 
   '@cloudflare/workers-types@4.20250321.0': {}
@@ -5497,6 +5533,11 @@ snapshots:
   '@hono/node-server@1.14.0(hono@4.7.5)':
     dependencies:
       hono: 4.7.5
+
+  '@hono/zod-validator@0.4.3(hono@4.7.5)(zod@3.24.2)':
+    dependencies:
+      hono: 4.7.5
+      zod: 3.24.2
 
   '@humanfs/core@0.19.1': {}
 
@@ -8286,7 +8327,7 @@ snapshots:
       workerd: 1.20241022.0
       ws: 8.18.0
       youch: 3.2.3
-      zod: 3.22.3
+      zod: 3.24.2
     transitivePeerDependencies:
       - bufferutil
       - supports-color
@@ -9944,5 +9985,7 @@ snapshots:
       stacktracey: 2.1.8
 
   zod@3.22.3: {}
+
+  zod@3.24.2: {}
 
   zwitch@2.0.4: {}

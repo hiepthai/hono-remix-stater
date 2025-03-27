@@ -1,12 +1,13 @@
 {
-  "name": "hono-node",
+  "name": "@apps/hono-node",
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/index.ts"
   },
   "dependencies": {
     "@hono/node-server": "^1.14.0",
-    "common": "workspace:*",
+    "@packages/common": "workspace:*",
+    "@packages/hono-core": "workspace:*",
     "hono": "^4.7.5"
   },
   "devDependencies": {
