@@ -1,8 +1,9 @@
 import { serve } from '@hono/node-server';
-import { logger } from 'common';
+import { getLogger } from 'common';
 import { Hono } from 'hono';
 
 const app = new Hono();
+const logger = getLogger();
 
 app.get('/', (c) => {
   return c.text('Hello Hono!');
