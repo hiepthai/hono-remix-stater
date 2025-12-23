@@ -1,7 +1,7 @@
-import { validator } from 'hono-openapi';
 import { z } from 'zod';
 
 import { honoFactory } from '../hono.js';
+import { validator } from '../utils/custom-validator.js';
 import { describe, successResponse } from '../utils/route-helpers.js';
 
 const HelloDTO = z.object({
