@@ -1,7 +1,3 @@
-### Remix+CloudflareWorkers template
-/dist
-/.mf
-
 ### Node template
 # Logs
 logs
@@ -107,6 +103,7 @@ dist
 
 # vuepress v2.x temp and cache directory
 .temp
+.cache
 
 # Docusaurus cache and generated files
 .docusaurus
@@ -133,10 +130,4 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-### Remix+CloudflarePages template
-/functions/\[\[path\]\].js
-/functions/\[\[path\]\].js.map
-
-#turbo
 .turbo
-

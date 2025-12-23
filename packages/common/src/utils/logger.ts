@@ -1,7 +1,7 @@
-import { BaseLogger, LevelWithSilentOrString, pino } from 'pino';
+import { type BaseLogger, type LevelWithSilentOrString, pino } from 'pino';
 
 function getLogger(level: LevelWithSilentOrString = 'info'): BaseLogger {
-  let logger: BaseLogger;
+  let logger: BaseLogger | undefined;
 
   if (!logger) {
     logger = pino({
