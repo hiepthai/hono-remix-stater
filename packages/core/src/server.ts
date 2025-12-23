@@ -1,11 +1,37 @@
 import { Scalar } from '@scalar/hono-api-reference';
 import { env } from 'hono/adapter';
+import { HTTPException } from 'hono/http-exception';
 import { generateSpecs } from 'hono-openapi';
 
 import { honoFactory } from './hono.js';
 import { helloWorldRoutes } from './routes/hello-world.js';
 
 const app = honoFactory.createApp();
+
+app.onError((err, c) => {
+  if (err instanceof HTTPException) {
+    return c.json(
+      {
+        ok: false,
+        error: err.message,
+      },
+      err.status,
+    );
+  }
+
+  console.error(err);
+
+  return c.json(
+    {
+      ok: false,
+      error: {
+        message: 'Server Runtime Error',
+        details: [err.message || 'Internal Server Error'],
+      },
+    },
+    500,
+  );
+});
 
 export const routes = app
   .basePath('/api')
